@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depression Clicker</title>
+    <link rel="shortcut icon" href="sad.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap');
+
+        :root {
+            --sidewidth: 35vw;
+            --shopwidth: 20vw;
+        }
+
+        * {
+            font-family: Rubik;
+            color: white;
+            text-align: center;
+            user-select: none;
+        }
+
+        html, body {
+            background-color: #303030;
+            overflow: hidden;
+        }
+
+        #side, #shop, #middle {
+            position: absolute;
+            top: 0;
+            height: 100vh;
+        }
+
+        #side, #shop {
+            background-color: #202020;
+            overflow-y: auto;
+            overflow-x: hidden;
+            height: 100vh;
+        }
+
+        #side {
+            left: 0;
+            width: var(--sidewidth);
+            border-right: 1px solid white;
+        }
+
+        #shop {
+            right: 0;
+            width: var(--shopwidth);
+            border-left: 1px solid white;
+        }
+
+        #middle {
+            left: var(--sidewidth);
+            width: calc(100vw - var(--sidewidth) - var(--shopwidth));
+            overflow: auto;
+        }
+
+        .shopItem {
+            cursor: pointer;
+            width: var(--shopwidth);
+            background-color: #303030;
+            transition-duration: 200ms;
+        }
+
+        #depressionImg {
+            cursor: pointer;
+            border-radius: 1000px;
+            width: calc(var(--sidewidth) - 200px);
+            margin: auto;
+            -webkit-user-drag: none;
+        }
+
+        button {
+            background-color: #202020;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition-duration: 500ms;
+        }
+    </style>
+</head>
+<body>
+    <div id="screen">
+        <div id="middle">
+            <button id="hardReset">Hard Reset</button>
+            <hr>
+            <h1>Prestige</h1>
+            <p id="prestigeLevel"></p>
+            <p id="prestigeGain"></p>
+            <button id="prestigeButton">Prestige</button>
+            <hr>
+            <h1>Statistics</h1>
+            <p id="depression"></p>
+            <p id="depressionEver"></p>
+            <p id="depressionThisPrestige"></p>
+            <p id="depressionSpent"></p>
+            <p id="depressionPerSecond"></p>
+            <p id="depressionPerClick"></p>
+            <p id="globalMultiplier"></p>
+            <hr>
+            <h1>Mods</h1>
+            <button id="importMod">Import a Modification...</button>
+            <div id="modlist"></div>
+            <hr>
+            <h1>Credits</h1>
+            <h3>Main Developer: <a href="https://github.com/TrueSunGaming">TrueSunGaming</a></h3>
+            <h3>Helper: IceCreamLemur</h3>
+            <h3>Inspired by Cookie Clicker</h3>
+        </div>
+        <div id="side">
+            <div id="depressionContainer">
+                <h1 id="depressionCounter"></h1>
+                <h2 id="dpsCounter"></h2>
+                <img src="sad.png" id="depressionImg">
+            </div>
+        </div>
+        <div id="shop">
+            <h1>Upgrades</h1>
+            <div id="upgrades"></div>
+            <hr>
+            <h1>Shop</h1>
+            <div id="shopItems"></div>
+        </div>
+    </div>
+    <script src="util.js"></script>
+    <script src="debug.js"></script>
+    <script src="modloader.js"></script>
+    <script src="mouse.js"></script>
+    <script src="popup.js"></script>
+    <script src="format.js"></script>
+    <script src="savedata.js"></script>
+    <script src="prestige.js"></script>
+    <script src="shop.js"></script>
+    <script src="dps.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
