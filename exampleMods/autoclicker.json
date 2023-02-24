@@ -1,0 +1,4 @@
+{
+    "name": "Autoclicker",
+    "script": "setInterval(()=>{el(\"depressionImg\").dispatchEvent(new Event(\"mouseup\"))})"
+}
