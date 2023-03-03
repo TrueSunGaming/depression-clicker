@@ -10,6 +10,10 @@ function prestige() {
     writeData();
 }
 
+function totalPrestige() {
+    return Math.floor(Math.cbrt(data.depressionEver / 1e12));
+}
+
 function nextPrestigeGain() {
-    return Math.floor(Math.cbrt(data.depressionThisPrestige / 1e12 / (data.prestige ** 3 + 1)));
+    return totalPrestige() - data.prestige;
 }
