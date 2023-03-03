@@ -35,7 +35,7 @@ class ShopItem {
         el.addEventListener("mouseup", () => this.buy());
         const title = document.createElement("h2");
         title.innerHTML = `${this.name} (x${this.count})`;
-        el.append(title, `Gain: ${formatNumber(this.dps)} Depression/s`, document.createElement("br"), `Cost: ${formatNumber(this.price)} Depression`);
+        el.append(title, `Gain: ${formatNumber(Math.floor(this.dps * getGlobalMultiplier()))} Depression/s`, document.createElement("br"), `Cost: ${formatNumber(this.price)} Depression`);
         return el;
     }
 
